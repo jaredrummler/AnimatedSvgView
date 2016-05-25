@@ -1,4 +1,10 @@
 # AnimatedSvgView
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view)
+[![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE)
+[![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14) 
+[![Twitter Follow](https://img.shields.io/twitter/follow/jrummy16.svg?style=social)](https://twitter.com/jrummy16)
+
 Animated SVG Drawing for Android
 
 ![DEMO](demo/demo.gif)
@@ -54,6 +60,31 @@ Add the view to your layout:
 ```
 
 You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
+
+# Download
+
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/animated-svg-view/1.0.0/animated-svg-view-1.0.0.aar) or grab via Gradle:
+
+```groovy
+compile 'com.jaredrummler:animated-svg-view:1.0.0'
+```
+or Maven:
+```xml
+<dependency>
+  <groupId>com.jaredrummler</groupId>
+  <artifactId>animated-svg-view</artifactId>
+  <version>1.0.0</version>
+  <type>aar</type>
+</dependency>
+```
+
+# Dependencies
+
+Animated Vector Drawable
+
+```groovy
+compile com.android.support:animated-vector-drawable:${latest_version}
+```
 
 # Acknowledgements
 
