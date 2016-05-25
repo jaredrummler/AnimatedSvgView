@@ -83,7 +83,7 @@ or Maven:
 Animated Vector Drawable
 
 ```groovy
-compile com.android.support:animated-vector-drawable:${latest_version}
+compile 'com.android.support:animated-vector-drawable:${latest_version}'
 ```
 
 # Acknowledgements
