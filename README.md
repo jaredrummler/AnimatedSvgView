@@ -92,8 +92,7 @@ compile 'com.android.support:animated-vector-drawable:${latest_version}'
 
 [oak-animatedsvgview](https://github.com/willowtreeapps/OAK/tree/master/oak-animatedsvgview) by [WillowTree, Inc.](https://github.com/willowtreeapps)
 
-License
---------
+# License
 
     Copyright (C) 2016, Jared Rummler
 
