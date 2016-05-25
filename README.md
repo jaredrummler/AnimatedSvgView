@@ -88,7 +88,7 @@ compile 'com.android.support:animated-vector-drawable:${latest_version}'
 
 # Acknowledgements
 
-[AnimatedMuzeiLogoFragment](https://github.com/romannurik/muzei/blob/master/main/src/main/java/com/google/android/apps/muzei/util/AnimatedMuzeiLogoFragment.java) by [Roman Nurik](https://github.com/romannurik)
+[AnimatedMuzeiLogoView](https://github.com/romannurik/muzei/blob/master/main/src/main/java/com/google/android/apps/muzei/util/AnimatedMuzeiLogoView.java) by [Roman Nurik](https://github.com/romannurik)
 
 [oak-animatedsvgview](https://github.com/willowtreeapps/OAK/tree/master/oak-animatedsvgview) by [WillowTree, Inc.](https://github.com/willowtreeapps)
 
