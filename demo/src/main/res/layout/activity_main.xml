@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2016 Jared Rummler <jared.rummler@gmail.com>
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+  <com.jrummyapps.android.widget.AnimatedSvgView
+      android:id="@+id/animated_svg_view"
+      android:layout_width="180dp"
+      android:layout_height="180dp"
+      android:layout_gravity="center"
+      android:layout_marginBottom="25dp"
+      app:animatedSvgFillColors="@array/google_glyph_colors"
+      app:animatedSvgFillStart="1200"
+      app:animatedSvgFillTime="1000"
+      app:animatedSvgGlyphStrings="@array/google_glyph_strings"
+      app:animatedSvgImageSizeX="400"
+      app:animatedSvgImageSizeY="400"
+      app:animatedSvgTraceTime="2000"
+      app:animatedSvgTraceTimePerGlyph="1000"/>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom">
+
+    <Button
+        android:id="@+id/btn_previous"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:enabled="false"
+        android:onClick="onPrevious"
+        android:text="@string/previous"/>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:enabled="false"
+        android:onClick="onNext"
+        android:text="@string/next"/>
+
+  </LinearLayout>
+
+</FrameLayout>
