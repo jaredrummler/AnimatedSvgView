@@ -26,7 +26,6 @@ import com.jrummyapps.android.widget.AnimatedSvgView;
 public class MainActivity extends AppCompatActivity {
 
   private AnimatedSvgView svgView;
-
   private int index = -1;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -57,15 +56,13 @@ public class MainActivity extends AppCompatActivity {
         if (state == AnimatedSvgView.STATE_TRACE_STARTED) {
           findViewById(R.id.btn_previous).setEnabled(false);
           findViewById(R.id.btn_next).setEnabled(false);
-        }
-        if (state == AnimatedSvgView.STATE_FINISHED) {
+        } else if (state == AnimatedSvgView.STATE_FINISHED) {
           findViewById(R.id.btn_previous).setEnabled(index != -1);
           findViewById(R.id.btn_next).setEnabled(true);
           if (index == -1) index = 0; // first time
         }
       }
     });
-
   }
 
   public void onNext(View view) {
@@ -83,9 +80,7 @@ public class MainActivity extends AppCompatActivity {
     svgView.setFillColors(svg.colors);
     svgView.setViewportSize(svg.width, svg.height);
     svgView.setTraceResidueColor(0x32000000);
-    //svgView.setTraceResidueColors(svg.colors);
     svgView.setTraceColors(svg.colors);
-    //svgView.setTraceColor(Color.BLACK);
     svgView.rebuildGlyphData();
     svgView.start();
   }
