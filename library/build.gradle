@@ -11,8 +11,8 @@ android {
 }
 
 dependencies {
-  provided 'com.android.support:support-v4:24.1.1'
-  provided 'com.android.support:support-vector-drawable:24.1.1'
+  provided 'com.android.support:support-v4:24.2.0'
+  provided 'com.android.support:support-vector-drawable:24.2.0'
 }
 
 //apply from: 'publication.gradle'
