@@ -18,12 +18,12 @@
 
 <resources>
   <declare-styleable name="AnimatedSvgView">
-    <attr name="animatedSvgImageSizeX" format="integer"/>
-    <attr name="animatedSvgImageSizeY" format="integer"/>
-    <attr name="animatedSvgTraceTime" format="string"/>
-    <attr name="animatedSvgTraceTimePerGlyph" format="string"/>
-    <attr name="animatedSvgFillStart" format="string"/>
-    <attr name="animatedSvgFillTime" format="string"/>
+    <attr name="animatedSvgRawImageWidthPx" format="integer"/>
+    <attr name="animatedSvgRawImageHeightPx" format="integer"/>
+    <attr name="animatedSvgTraceTimeMs" format="string"/>
+    <attr name="animatedSvgTraceTimePerGlyphMs" format="string"/>
+    <attr name="animatedSvgFillStartMs" format="string"/>
+    <attr name="animatedSvgFillTimeMs" format="string"/>
     <attr name="animatedSvgGlyphStrings" format="reference"/>
     <attr name="animatedSvgTraceColors" format="reference"/>
     <attr name="animatedSvgTraceResidueColors" format="reference"/>
