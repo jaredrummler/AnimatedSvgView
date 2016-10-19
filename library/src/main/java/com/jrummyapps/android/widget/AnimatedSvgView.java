@@ -111,14 +111,14 @@ public class AnimatedSvgView extends View {
 
     if (attrs != null) {
       TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AnimatedSvgView);
-      mViewportWidth = a.getInt(R.styleable.AnimatedSvgView_animatedSvgImageSizeX, 512);
-      aspectRatioWidth = a.getInt(R.styleable.AnimatedSvgView_animatedSvgImageSizeX, 512);
-      mViewportHeight = a.getInt(R.styleable.AnimatedSvgView_animatedSvgImageSizeY, 512);
-      aspectRatioHeight = a.getInt(R.styleable.AnimatedSvgView_animatedSvgImageSizeY, 512);
-      mTraceTime = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceTime, 2000);
-      mTraceTimePerGlyph = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceTimePerGlyph, 1000);
-      mFillStart = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillStart, 1200);
-      mFillTime = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillTime, 1000);
+      mViewportWidth = a.getInt(R.styleable.AnimatedSvgView_animatedSvgRawImageWidthPx, 512);
+      aspectRatioWidth = a.getInt(R.styleable.AnimatedSvgView_animatedSvgRawImageWidthPx, 512);
+      mViewportHeight = a.getInt(R.styleable.AnimatedSvgView_animatedSvgRawImageHeightPx, 512);
+      aspectRatioHeight = a.getInt(R.styleable.AnimatedSvgView_animatedSvgRawImageHeightPx, 512);
+      mTraceTime = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceTimeMs, 2000);
+      mTraceTimePerGlyph = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceTimePerGlyphMs, 1000);
+      mFillStart = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillStartMs, 1200);
+      mFillTime = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillTimeMs, 1000);
       int glyphStringsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgGlyphStrings, 0);
       int traceResidueColorsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgTraceResidueColors, 0);
       int traceColorsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgTraceColors, 0);

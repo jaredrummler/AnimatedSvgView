@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 
 def libraryGroupId = 'com.jrummyapps'
 def libraryArtifactId = 'animated-svg-view'
-def libraryVersion = '1.0.0'
+def libraryVersion = '2.0.0'
 
 publishing {
     publications {
