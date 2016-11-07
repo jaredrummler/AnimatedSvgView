@@ -1,18 +1,18 @@
 apply plugin: 'com.android.library'
 
 android {
-  compileSdkVersion 24
+  compileSdkVersion 25
   buildToolsVersion "24.0.3"
 
   defaultConfig {
     minSdkVersion 14
-    targetSdkVersion 24
+    targetSdkVersion 25
   }
 }
 
 dependencies {
-  provided 'com.android.support:support-v4:24.2.1'
-  provided 'com.android.support:support-vector-drawable:24.2.1'
+  provided 'com.android.support:support-v4:25.0.0'
+  provided 'com.android.support:support-vector-drawable:25.0.0'
 }
 
 //apply from: 'publication.gradle'
