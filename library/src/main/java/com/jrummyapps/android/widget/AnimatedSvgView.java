@@ -41,11 +41,18 @@ import android.view.animation.Interpolator;
 
 import com.jrummyapps.android.animatedsvgview.R;
 
+/**
+ * Animated SVG Drawing for Android
+ */
 public class AnimatedSvgView extends View {
 
+  /** The animation has been reset or hasn't started yet. */
   public static final int STATE_NOT_STARTED = 0;
+  /** The SVG is being traced */
   public static final int STATE_TRACE_STARTED = 1;
+  /** The SVG has been traced and is now being filled */
   public static final int STATE_FILL_STARTED = 2;
+  /** The animation has finished */
   public static final int STATE_FINISHED = 3;
 
   private static final String TAG = "AnimatedSvgView";
@@ -154,85 +161,6 @@ public class AnimatedSvgView extends View {
     }
   }
 
-  public void setViewportSize(float viewportWidth, float viewportHeight) {
-    mViewportWidth = viewportWidth;
-    mViewportHeight = viewportHeight;
-    aspectRatioWidth = viewportWidth;
-    aspectRatioHeight = viewportHeight;
-    mViewport = new PointF(mViewportWidth, mViewportHeight);
-    requestLayout();
-  }
-
-  public void setGlyphStrings(String... glyphStrings) {
-    mGlyphStrings = glyphStrings;
-  }
-
-  public void setTraceResidueColors(int[] traceResidueColors) {
-    mTraceResidueColors = traceResidueColors;
-  }
-
-  public void setTraceColors(int[] traceColors) {
-    mTraceColors = traceColors;
-  }
-
-  public void setFillColors(int[] fillColors) {
-    mFillColors = fillColors;
-  }
-
-  public void setTraceResidueColor(int color) {
-    if (mGlyphStrings == null) {
-      throw new RuntimeException("You need to set the glyphs first.");
-    }
-    int length = mGlyphStrings.length;
-    int[] colors = new int[length];
-    for (int i = 0; i < length; i++) {
-      colors[i] = color;
-    }
-    setTraceResidueColors(colors);
-  }
-
-  public void setTraceColor(int color) {
-    if (mGlyphStrings == null) {
-      throw new RuntimeException("You need to set the glyphs first.");
-    }
-    int length = mGlyphStrings.length;
-    int[] colors = new int[length];
-    for (int i = 0; i < length; i++) {
-      colors[i] = color;
-    }
-    setTraceColors(colors);
-  }
-
-  public void setFillColor(int color) {
-    if (mGlyphStrings == null) {
-      throw new RuntimeException("You need to set the glyphs first.");
-    }
-    int length = mGlyphStrings.length;
-    int[] colors = new int[length];
-    for (int i = 0; i < length; i++) {
-      colors[i] = color;
-    }
-    setFillColors(colors);
-  }
-
-  public void start() {
-    mStartTime = System.currentTimeMillis();
-    changeState(STATE_TRACE_STARTED);
-    ViewCompat.postInvalidateOnAnimation(this);
-  }
-
-  public void reset() {
-    mStartTime = 0;
-    changeState(STATE_NOT_STARTED);
-    ViewCompat.postInvalidateOnAnimation(this);
-  }
-
-  public void setToFinishedFrame() {
-    mStartTime = 1;
-    changeState(STATE_FINISHED);
-    ViewCompat.postInvalidateOnAnimation(this);
-  }
-
   @Override protected void onSizeChanged(int w, int h, int oldw, int oldh) {
     super.onSizeChanged(w, h, oldw, oldh);
     mWidth = w;
@@ -262,42 +190,6 @@ public class AnimatedSvgView extends View {
 
     super.onMeasure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY),
         MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
-  }
-
-  @SuppressWarnings("SuspiciousNameCombination")
-  public void rebuildGlyphData() {
-
-    float X = mWidth / mViewport.x;
-    float Y = mHeight / mViewport.y;
-
-    Matrix scaleMatrix = new Matrix();
-    RectF outerRect = new RectF(X, X, Y, Y);
-    scaleMatrix.setScale(X, Y, outerRect.centerX(), outerRect.centerY());
-
-    mGlyphData = new GlyphData[mGlyphStrings.length];
-    for (int i = 0; i < mGlyphStrings.length; i++) {
-      mGlyphData[i] = new GlyphData();
-      try {
-        mGlyphData[i].path = ExposedPathParser.createPathFromPathData(mGlyphStrings[i]);
-        mGlyphData[i].path.transform(scaleMatrix);
-      } catch (Exception e) {
-        mGlyphData[i].path = new Path();
-        Log.e(TAG, "Couldn't parse path", e);
-      }
-      PathMeasure pm = new PathMeasure(mGlyphData[i].path, true);
-      while (true) {
-        mGlyphData[i].length = Math.max(mGlyphData[i].length, pm.getLength());
-        if (!pm.nextContour()) {
-          break;
-        }
-      }
-      mGlyphData[i].paint = new Paint();
-      mGlyphData[i].paint.setStyle(Paint.Style.STROKE);
-      mGlyphData[i].paint.setAntiAlias(true);
-      mGlyphData[i].paint.setColor(Color.WHITE);
-      mGlyphData[i].paint.setStrokeWidth(
-          TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
-    }
   }
 
   @SuppressLint("DrawAllocation")
@@ -353,6 +245,207 @@ public class AnimatedSvgView extends View {
     }
   }
 
+  /**
+   * If you set the SVG data paths more than once using {@link #setGlyphStrings(String...)} you should call this method
+   * before playing the animation.
+   */
+  @SuppressWarnings("SuspiciousNameCombination")
+  public void rebuildGlyphData() {
+
+    float X = mWidth / mViewport.x;
+    float Y = mHeight / mViewport.y;
+
+    Matrix scaleMatrix = new Matrix();
+    RectF outerRect = new RectF(X, X, Y, Y);
+    scaleMatrix.setScale(X, Y, outerRect.centerX(), outerRect.centerY());
+
+    mGlyphData = new GlyphData[mGlyphStrings.length];
+    for (int i = 0; i < mGlyphStrings.length; i++) {
+      mGlyphData[i] = new GlyphData();
+      try {
+        mGlyphData[i].path = ExposedPathParser.createPathFromPathData(mGlyphStrings[i]);
+        mGlyphData[i].path.transform(scaleMatrix);
+      } catch (Exception e) {
+        mGlyphData[i].path = new Path();
+        Log.e(TAG, "Couldn't parse path", e);
+      }
+      PathMeasure pm = new PathMeasure(mGlyphData[i].path, true);
+      while (true) {
+        mGlyphData[i].length = Math.max(mGlyphData[i].length, pm.getLength());
+        if (!pm.nextContour()) {
+          break;
+        }
+      }
+      mGlyphData[i].paint = new Paint();
+      mGlyphData[i].paint.setStyle(Paint.Style.STROKE);
+      mGlyphData[i].paint.setAntiAlias(true);
+      mGlyphData[i].paint.setColor(Color.WHITE);
+      mGlyphData[i].paint.setStrokeWidth(
+          TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, getResources().getDisplayMetrics()));
+    }
+  }
+
+  /**
+   * Set the viewport width and height of the SVG. This can be found in the viewBox in the SVG. This is not the size
+   * of the view.
+   *
+   * @param viewportWidth
+   *     the width
+   * @param viewportHeight
+   *     the height
+   */
+  public void setViewportSize(float viewportWidth, float viewportHeight) {
+    mViewportWidth = viewportWidth;
+    mViewportHeight = viewportHeight;
+    aspectRatioWidth = viewportWidth;
+    aspectRatioHeight = viewportHeight;
+    mViewport = new PointF(mViewportWidth, mViewportHeight);
+    requestLayout();
+  }
+
+  /**
+   * Set the SVG path data.
+   *
+   * @param glyphStrings
+   *     The path strings found in the SVG.
+   */
+  public void setGlyphStrings(String... glyphStrings) {
+    mGlyphStrings = glyphStrings;
+  }
+
+  /**
+   * Set the colors used during tracing the SVG
+   *
+   * @param traceResidueColors
+   *     the colors. Should be the same length as the SVG paths.
+   */
+  public void setTraceResidueColors(int[] traceResidueColors) {
+    mTraceResidueColors = traceResidueColors;
+  }
+
+  /**
+   * Set the colors used to trace the SVG.
+   *
+   * @param traceColors
+   *     The colors. Should be the same length as the SVG paths.
+   */
+  public void setTraceColors(int[] traceColors) {
+    mTraceColors = traceColors;
+  }
+
+  /**
+   * Set the colors for the SVG. This corresponds with each data path.
+   *
+   * @param fillColors
+   *     The colors for each SVG data path.
+   */
+  public void setFillColors(int[] fillColors) {
+    mFillColors = fillColors;
+  }
+
+  /**
+   * Set the color used for tracing. This will be applied to all data paths.
+   *
+   * @param color
+   *     The color
+   */
+  public void setTraceResidueColor(int color) {
+    if (mGlyphStrings == null) {
+      throw new RuntimeException("You need to set the glyphs first.");
+    }
+    int length = mGlyphStrings.length;
+    int[] colors = new int[length];
+    for (int i = 0; i < length; i++) {
+      colors[i] = color;
+    }
+    setTraceResidueColors(colors);
+  }
+
+  /**
+   * Set the color used for tracing. This will be applied to all data paths.
+   *
+   * @param color
+   *     The color
+   */
+  public void setTraceColor(int color) {
+    if (mGlyphStrings == null) {
+      throw new RuntimeException("You need to set the glyphs first.");
+    }
+    int length = mGlyphStrings.length;
+    int[] colors = new int[length];
+    for (int i = 0; i < length; i++) {
+      colors[i] = color;
+    }
+    setTraceColors(colors);
+  }
+
+  /**
+   * Set the color used for the icon. This will apply the color to all SVG data paths.
+   *
+   * @param color
+   *     The color
+   */
+  public void setFillColor(int color) {
+    if (mGlyphStrings == null) {
+      throw new RuntimeException("You need to set the glyphs first.");
+    }
+    int length = mGlyphStrings.length;
+    int[] colors = new int[length];
+    for (int i = 0; i < length; i++) {
+      colors[i] = color;
+    }
+    setFillColors(colors);
+  }
+
+  /**
+   * Start the animation
+   */
+  public void start() {
+    mStartTime = System.currentTimeMillis();
+    changeState(STATE_TRACE_STARTED);
+    ViewCompat.postInvalidateOnAnimation(this);
+  }
+
+  /**
+   * Reset the animation
+   */
+  public void reset() {
+    mStartTime = 0;
+    changeState(STATE_NOT_STARTED);
+    ViewCompat.postInvalidateOnAnimation(this);
+  }
+
+  /**
+   * Draw the SVG, skipping any animation.
+   */
+  public void setToFinishedFrame() {
+    mStartTime = 1;
+    changeState(STATE_FINISHED);
+    ViewCompat.postInvalidateOnAnimation(this);
+  }
+
+  /**
+   * Get the animation state.
+   *
+   * @return Either {{@link #STATE_NOT_STARTED},
+   * {@link #STATE_TRACE_STARTED}},
+   * {@link #STATE_FILL_STARTED} or
+   * {@link #STATE_FINISHED}
+   */
+  public int getState() {
+    return mState;
+  }
+
+  /**
+   * Get notified about the animation states.
+   *
+   * @param onStateChangeListener
+   *     The {@link OnStateChangeListener}
+   */
+  public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener) {
+    mOnStateChangeListener = onStateChangeListener;
+  }
+
   private void changeState(int state) {
     if (mState == state) {
       return;
@@ -364,20 +457,25 @@ public class AnimatedSvgView extends View {
     }
   }
 
-  public int getState() {
-    return mState;
-  }
-
-  public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener) {
-    mOnStateChangeListener = onStateChangeListener;
-  }
-
+  /**
+   * Callback for listening to animation state changes
+   */
   public interface OnStateChangeListener {
 
+    /**
+     * Called when the animation state changes.
+     *
+     * @param state
+     *     The state of the animation.
+     *     Either {{@link #STATE_NOT_STARTED},
+     *     {@link #STATE_TRACE_STARTED}},
+     *     {@link #STATE_FILL_STARTED} or
+     *     {@link #STATE_FINISHED}
+     */
     void onStateChange(int state);
   }
 
-  private static class GlyphData {
+  static final class GlyphData {
 
     Path path;
     Paint paint;
