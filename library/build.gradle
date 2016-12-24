@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
   compileSdkVersion 25
-  buildToolsVersion "25.0.0"
+  buildToolsVersion "25.0.2"
 
   defaultConfig {
     minSdkVersion 14
@@ -11,9 +11,9 @@ android {
 }
 
 dependencies {
-  provided 'com.android.support:support-v4:25.0.1'
-  provided 'com.android.support:support-vector-drawable:25.0.1'
+  compile 'com.android.support:support-compat:25.1.0'
+  compile 'com.android.support:support-vector-drawable:25.1.0'
 }
 
-//apply from: 'publication.gradle'
-//apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+//apply from: 'https://raw.githubusercontent.com/jaredrummler/android-artifact-push/master/artifactory/publication.gradle'
+//apply from: 'https://raw.githubusercontent.com/jaredrummler/android-artifact-push/master/maven/gradle-mvn-push.gradle'
