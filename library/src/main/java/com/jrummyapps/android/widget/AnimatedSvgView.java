@@ -67,7 +67,7 @@ public class AnimatedSvgView extends View {
   private int mTraceTimePerGlyph = 1000;
   private int mFillStart = 1200;
   private int mFillTime = 1000;
-  private static final int MARKER_LENGTH_DIP = 16;
+  private int mTraceMarkerLength = 16;
   private int[] mTraceResidueColors;
   private int[] mTraceColors;
   private float mViewportWidth;
@@ -108,9 +108,6 @@ public class AnimatedSvgView extends View {
     mFillPaint.setAntiAlias(true);
     mFillPaint.setStyle(Paint.Style.FILL);
 
-    mMarkerLength =
-        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, MARKER_LENGTH_DIP, getResources().getDisplayMetrics());
-
     mTraceColors = new int[1];
     mTraceColors[0] = Color.BLACK;
     mTraceResidueColors = new int[1];
@@ -126,6 +123,8 @@ public class AnimatedSvgView extends View {
       mTraceTimePerGlyph = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceTimePerGlyph, 1000);
       mFillStart = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillStart, 1200);
       mFillTime = a.getInt(R.styleable.AnimatedSvgView_animatedSvgFillTime, 1000);
+      mTraceMarkerLength = a.getInt(R.styleable.AnimatedSvgView_animatedSvgTraceMarkerLength,16);
+      mMarkerLength = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mTraceMarkerLength, getResources().getDisplayMetrics());
       int glyphStringsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgGlyphStrings, 0);
       int traceResidueColorsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgTraceResidueColors, 0);
       int traceColorsId = a.getResourceId(R.styleable.AnimatedSvgView_animatedSvgTraceColors, 0);

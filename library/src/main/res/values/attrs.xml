@@ -27,6 +27,7 @@
     <attr name="animatedSvgGlyphStrings" format="reference"/>
     <attr name="animatedSvgTraceColors" format="reference"/>
     <attr name="animatedSvgTraceResidueColors" format="reference"/>
+    <attr name="animatedSvgTraceMarkerLength" format="integer"/>
     <attr name="animatedSvgFillColors" format="reference"/>
   </declare-styleable>
 </resources>
