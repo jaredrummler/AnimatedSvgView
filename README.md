@@ -63,17 +63,17 @@ You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
 
 # Download
 
-Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/animated-svg-view/1.0.0/animated-svg-view-1.0.0.aar) or grab via Gradle:
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/animated-svg-view/1.0.1/animated-svg-view-1.0.1.aar) or grab via Gradle:
 
 ```groovy
-compile 'com.jaredrummler:animated-svg-view:1.0.0'
+compile 'com.jaredrummler:animated-svg-view:1.0.1'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.jaredrummler</groupId>
   <artifactId>animated-svg-view</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>aar</type>
 </dependency>
 ```
