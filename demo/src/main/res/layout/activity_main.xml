@@ -40,8 +40,8 @@
       app:animatedSvgGlyphStrings="@array/google_glyph_strings"
       app:animatedSvgImageSizeX="400"
       app:animatedSvgImageSizeY="400"
-      app:animatedSvgTraceTime="2000"
       app:animatedSvgTraceMarkerLength="50"
+      app:animatedSvgTraceTime="2000"
       app:animatedSvgTraceTimePerGlyph="1000"/>
 
   <LinearLayout
