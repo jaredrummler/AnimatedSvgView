@@ -1,6 +1,6 @@
 # AnimatedSvgView
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view)
 [![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE)
 [![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14) 
 [![Twitter Follow](https://img.shields.io/twitter/follow/jrummy16.svg?style=social)](https://twitter.com/jrummy16)
@@ -63,15 +63,15 @@ You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
 
 # Download
 
-Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/animated-svg-view/1.0.1/animated-svg-view-1.0.1.aar) or grab via Gradle:
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jrummyapps/animated-svg-view/1.0.1/animated-svg-view-1.0.1.aar) or grab via Gradle:
 
 ```groovy
-compile 'com.jaredrummler:animated-svg-view:1.0.1'
+compile 'com.jrummyapps:animated-svg-view:1.0.1'
 ```
 or Maven:
 ```xml
 <dependency>
-  <groupId>com.jaredrummler</groupId>
+  <groupId>com.jrummyapps</groupId>
   <artifactId>animated-svg-view</artifactId>
   <version>1.0.1</version>
   <type>aar</type>
