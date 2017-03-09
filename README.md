@@ -59,6 +59,13 @@ Add the view to your layout:
     app:animatedSvgTraceTimePerGlyph="1000"/>
 ```
 
+Play the animation:
+
+```java
+AnimatedSvgView svgView = (AnimatedSvgView) findViewById(R.id.animated_svg_view);
+svg.start();
+```
+
 You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
 
 # Download
