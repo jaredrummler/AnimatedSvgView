@@ -63,7 +63,7 @@ Play the animation:
 
 ```java
 AnimatedSvgView svgView = (AnimatedSvgView) findViewById(R.id.animated_svg_view);
-svg.start();
+svgView.start();
 ```
 
 You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
