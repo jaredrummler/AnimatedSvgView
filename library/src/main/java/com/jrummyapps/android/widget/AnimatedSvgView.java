@@ -30,6 +30,8 @@ import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
+import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.graphics.drawable.ExposedPathParser;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
@@ -308,7 +310,7 @@ public class AnimatedSvgView extends View {
    * @param glyphStrings
    *     The path strings found in the SVG.
    */
-  public void setGlyphStrings(String... glyphStrings) {
+  public void setGlyphStrings(@NonNull String... glyphStrings) {
     mGlyphStrings = glyphStrings;
   }
 
@@ -318,7 +320,7 @@ public class AnimatedSvgView extends View {
    * @param traceResidueColors
    *     the colors. Should be the same length as the SVG paths.
    */
-  public void setTraceResidueColors(int[] traceResidueColors) {
+  public void setTraceResidueColors(@NonNull int[] traceResidueColors) {
     mTraceResidueColors = traceResidueColors;
   }
 
@@ -328,7 +330,7 @@ public class AnimatedSvgView extends View {
    * @param traceColors
    *     The colors. Should be the same length as the SVG paths.
    */
-  public void setTraceColors(int[] traceColors) {
+  public void setTraceColors(@NonNull int[] traceColors) {
     mTraceColors = traceColors;
   }
 
@@ -338,7 +340,7 @@ public class AnimatedSvgView extends View {
    * @param fillColors
    *     The colors for each SVG data path.
    */
-  public void setFillColors(int[] fillColors) {
+  public void setFillColors(@NonNull int[] fillColors) {
     mFillColors = fillColors;
   }
 
@@ -348,7 +350,7 @@ public class AnimatedSvgView extends View {
    * @param color
    *     The color
    */
-  public void setTraceResidueColor(int color) {
+  public void setTraceResidueColor(@ColorInt int color) {
     if (mGlyphStrings == null) {
       throw new RuntimeException("You need to set the glyphs first.");
     }
@@ -366,7 +368,7 @@ public class AnimatedSvgView extends View {
    * @param color
    *     The color
    */
-  public void setTraceColor(int color) {
+  public void setTraceColor(@ColorInt int color) {
     if (mGlyphStrings == null) {
       throw new RuntimeException("You need to set the glyphs first.");
     }
@@ -384,7 +386,7 @@ public class AnimatedSvgView extends View {
    * @param color
    *     The color
    */
-  public void setFillColor(int color) {
+  public void setFillColor(@ColorInt int color) {
     if (mGlyphStrings == null) {
       throw new RuntimeException("You need to set the glyphs first.");
     }
