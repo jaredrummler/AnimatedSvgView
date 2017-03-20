@@ -25,8 +25,8 @@ import com.jrummyapps.android.widget.AnimatedSvgView;
 
 public class MainActivity extends AppCompatActivity {
 
-  private AnimatedSvgView svgView;
-  private int index = -1;
+  /*package*/ AnimatedSvgView svgView;
+  /*package*/ int index = -1;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     svgView.setOnStateChangeListener(new AnimatedSvgView.OnStateChangeListener() {
 
-      @Override public void onStateChange(int state) {
+      @Override public void onStateChange(@AnimatedSvgView.State int state) {
         if (state == AnimatedSvgView.STATE_TRACE_STARTED) {
           findViewById(R.id.btn_previous).setEnabled(false);
           findViewById(R.id.btn_next).setEnabled(false);
@@ -81,12 +81,6 @@ public class MainActivity extends AppCompatActivity {
     svgView.setViewportSize(svg.width, svg.height);
     svgView.setTraceResidueColor(0x32000000);
     svgView.setTraceColors(svg.colors);
-
-    svgView.setTraceTime(10_000);
-    svgView.setTraceTimePerGlyph(10_000);
-    svgView.setFillTime(5_000);
-    svgView.setFillStart(5_000);
-
     svgView.rebuildGlyphData();
     svgView.start();
   }
