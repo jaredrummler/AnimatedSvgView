@@ -40,7 +40,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-
 import com.jrummyapps.android.animatedsvgview.R;
 
 /**
@@ -396,6 +395,46 @@ public class AnimatedSvgView extends View {
       colors[i] = color;
     }
     setFillColors(colors);
+  }
+
+  /**
+   * Set the animation trace time
+   *
+   * @param traceTime
+   *     time in milliseconds
+   */
+  public void setTraceTime(int traceTime) {
+    mTraceTime = traceTime;
+  }
+
+  /**
+   * Set the time used to trace each glyph
+   *
+   * @param traceTimePerGlyph
+   *     time in milliseconds
+   */
+  public void setTraceTimePerGlyph(int traceTimePerGlyph) {
+    mTraceTimePerGlyph = traceTimePerGlyph;
+  }
+
+  /**
+   * Set the time at which colors will start being filled after the tracing begins
+   *
+   * @param fillStart
+   *     time in milliseconds
+   */
+  public void setFillStart(int fillStart) {
+    mFillStart = fillStart;
+  }
+
+  /**
+   * Set the time it takes to fill colors
+   *
+   * @param fillTime
+   *     time in milliseconds
+   */
+  public void setFillTime(int fillTime) {
+    mFillTime = fillTime;
   }
 
   /**
