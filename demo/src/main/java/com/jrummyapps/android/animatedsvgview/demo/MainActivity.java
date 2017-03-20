@@ -81,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
     svgView.setViewportSize(svg.width, svg.height);
     svgView.setTraceResidueColor(0x32000000);
     svgView.setTraceColors(svg.colors);
+
+    svgView.setTraceTime(10_000);
+    svgView.setTraceTimePerGlyph(10_000);
+    svgView.setFillTime(5_000);
+    svgView.setFillStart(5_000);
+
     svgView.rebuildGlyphData();
     svgView.start();
   }

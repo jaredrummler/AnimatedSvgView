@@ -31,6 +31,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.graphics.drawable.ExposedPathParser;
 import android.support.v4.view.ViewCompat;
@@ -472,7 +473,7 @@ public class AnimatedSvgView extends View {
    * {@link #STATE_FILL_STARTED} or
    * {@link #STATE_FINISHED}
    */
-  public int getState() {
+  @State public int getState() {
     return mState;
   }
 
@@ -486,7 +487,7 @@ public class AnimatedSvgView extends View {
     mOnStateChangeListener = onStateChangeListener;
   }
 
-  private void changeState(int state) {
+  private void changeState(@State int state) {
     if (mState == state) {
       return;
     }
@@ -512,14 +513,18 @@ public class AnimatedSvgView extends View {
      *     {@link #STATE_FILL_STARTED} or
      *     {@link #STATE_FINISHED}
      */
-    void onStateChange(int state);
+    void onStateChange(@State int state);
+  }
+
+  @IntDef({STATE_NOT_STARTED, STATE_TRACE_STARTED, STATE_FILL_STARTED, STATE_FINISHED})
+  public @interface State {
   }
 
   static final class GlyphData {
-
     Path path;
     Paint paint;
     float length;
+
   }
 
 }
