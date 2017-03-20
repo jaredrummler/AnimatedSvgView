@@ -11,8 +11,8 @@ android {
 }
 
 dependencies {
-  compile 'com.android.support:support-compat:25.1.0'
-  compile 'com.android.support:support-vector-drawable:25.1.0'
+  compile 'com.android.support:support-compat:25.3.0'
+  compile 'com.android.support:support-vector-drawable:25.3.0'
 }
 
 //apply from: 'https://raw.githubusercontent.com/jaredrummler/android-artifact-push/master/artifactory/publication.gradle'
