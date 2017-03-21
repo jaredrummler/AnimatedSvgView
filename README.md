@@ -70,17 +70,17 @@ You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
 
 # Download
 
-Download [the latest AAR](https://repo1.maven.org/maven2/com/jrummyapps/animated-svg-view/1.0.1/animated-svg-view-1.0.1.aar) or grab via Gradle:
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jrummyapps/animated-svg-view/1.0.2/animated-svg-view-1.0.2.aar) or grab via Gradle:
 
 ```groovy
-compile 'com.jrummyapps:animated-svg-view:1.0.1'
+compile 'com.jrummyapps:animated-svg-view:1.0.2'
 ```
 or Maven:
 ```xml
 <dependency>
   <groupId>com.jrummyapps</groupId>
   <artifactId>animated-svg-view</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>aar</type>
 </dependency>
 ```
