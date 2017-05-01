@@ -3,7 +3,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view)
 [![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE)
 [![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14) 
-[![Twitter Follow](https://img.shields.io/twitter/follow/jrummy16.svg?style=social)](https://twitter.com/jrummy16)
+[![Twitter Follow](https://img.shields.io/twitter/follow/jaredrummler.svg?style=social)](https://twitter.com/jaredrummler)
 
 Animated SVG Drawing for Android
 
