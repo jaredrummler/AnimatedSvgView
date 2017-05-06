@@ -16,7 +16,7 @@
   ~
   -->
 
-<manifest package="com.jrummyapps.android.animatedsvgview.demo"
+<manifest package="com.jaredrummler.android.animatedsvgview.demo"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
   <application
@@ -25,7 +25,7 @@
       android:label="@string/app_name"
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
-    <activity android:name=".MainActivity">
+    <activity android:name="com.jaredrummler.android.animatedsvgview.demo.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 

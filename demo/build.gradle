@@ -5,7 +5,7 @@ android {
   buildToolsVersion "25.0.2"
 
   defaultConfig {
-    applicationId "com.jrummyapps.android.animatedsvgview.demo"
+    applicationId "com.jaredrummler.android.animatedsvgview.demo"
     minSdkVersion 14
     targetSdkVersion 25
     versionCode 1

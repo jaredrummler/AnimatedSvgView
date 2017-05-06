@@ -15,7 +15,7 @@
  *
  */
 
-package com.jrummyapps.android.animatedsvgview.demo;
+package com.jaredrummler.android.animatedsvgview.demo;
 
 import android.graphics.Color;
 

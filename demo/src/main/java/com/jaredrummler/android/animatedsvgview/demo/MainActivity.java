@@ -15,13 +15,12 @@
  *
  */
 
-package com.jrummyapps.android.animatedsvgview.demo;
+package com.jaredrummler.android.animatedsvgview.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.jrummyapps.android.widget.AnimatedSvgView;
+import com.jaredrummler.android.widget.AnimatedSvgView;
 
 public class MainActivity extends AppCompatActivity {
 

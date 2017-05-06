@@ -15,5 +15,5 @@ dependencies {
   compile 'com.android.support:support-vector-drawable:25.3.1'
 }
 
-//apply from: 'https://raw.githubusercontent.com/jaredrummler/android-artifact-push/master/artifactory/publication.gradle'
-//apply from: 'https://raw.githubusercontent.com/jaredrummler/android-artifact-push/master/maven/gradle-mvn-push.gradle'
+apply from: rootProject.file('gradle/maven-push.gradle')
+//apply from: rootProject.file('gradle/artifactory-push.gradle')

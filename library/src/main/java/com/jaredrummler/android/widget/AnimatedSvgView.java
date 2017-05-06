@@ -15,7 +15,7 @@
  *
  */
 
-package com.jrummyapps.android.widget;
+package com.jaredrummler.android.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -41,7 +41,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-import com.jrummyapps.android.animatedsvgview.R;
+import com.jaredrummler.android.animatedsvgview.R;
 
 /**
  * Animated SVG Drawing for Android

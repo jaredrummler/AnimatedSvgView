@@ -1,6 +1,6 @@
 # AnimatedSvgView
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jrummyapps/animated-svg-view)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.jaredrummler/animated-svg-view)
 [![License](http://img.shields.io/:license-apache-blue.svg)](LICENSE)
 [![API](https://img.shields.io/badge/API-14%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=14) 
 [![Twitter Follow](https://img.shields.io/twitter/follow/jaredrummler.svg?style=social)](https://twitter.com/jaredrummler)
@@ -43,7 +43,7 @@ Add the colors for each path in an integer-array:
 Add the view to your layout:
 
 ```xml
-<com.jrummyapps.android.widget.AnimatedSvgView
+<com.jaredrummler.android.widget.AnimatedSvgView
     android:id="@+id/animated_svg_view"
     android:layout_width="180dp"
     android:layout_height="180dp"
@@ -70,17 +70,17 @@ You can also set SVG glyphs and colors dynamically (see the [demo](demo)).
 
 # Download
 
-Download [the latest AAR](https://repo1.maven.org/maven2/com/jrummyapps/animated-svg-view/1.0.2/animated-svg-view-1.0.2.aar) or grab via Gradle:
+Download [the latest AAR](https://repo1.maven.org/maven2/com/jaredrummler/animated-svg-view/1.0.0/animated-svg-view-1.0.0.aar) or grab via Gradle:
 
 ```groovy
-compile 'com.jrummyapps:animated-svg-view:1.0.2'
+compile 'com.jaredrummler:animated-svg-view:1.0.0'
 ```
 or Maven:
 ```xml
 <dependency>
-  <groupId>com.jrummyapps</groupId>
+  <groupId>com.jaredrummler</groupId>
   <artifactId>animated-svg-view</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.0</version>
   <type>aar</type>
 </dependency>
 ```
