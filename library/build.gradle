@@ -12,7 +12,6 @@ android {
 
 dependencies {
   compile 'com.android.support:support-compat:26.0.2'
-  compile 'com.android.support:support-vector-drawable:26.0.2'
 }
 
 apply from: rootProject.file('gradle/maven-push.gradle')
