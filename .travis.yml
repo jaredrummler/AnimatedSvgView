@@ -1,0 +1,27 @@
+language: android
+
+android:
+  components:
+    - tools                             # Tools
+    - platform-tools                    # Platform tools
+    - build-tools-26.0.1                # Build tools version
+    - android-26                        # Target SDK version
+
+jdk:
+  - oraclejdk8
+
+script:
+  - ./gradlew build
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email: false
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.gradle
