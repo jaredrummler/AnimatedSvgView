@@ -18,7 +18,7 @@
 package com.jaredrummler.android.animatedsvgview.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import com.jaredrummler.android.widget.AnimatedSvgView;
 
