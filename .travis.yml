@@ -4,8 +4,8 @@ android:
   components:
     - tools                             # Tools
     - platform-tools                    # Platform tools
-    - build-tools-26.0.1                # Build tools version
-    - android-26                        # Target SDK version
+    - build-tools-28.0.3                # Build tools version
+    - android-28                        # Target SDK version
 
 jdk:
   - oraclejdk8
